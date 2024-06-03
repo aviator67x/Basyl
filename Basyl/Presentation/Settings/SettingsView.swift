@@ -39,7 +39,7 @@ struct SettingsView: View {
                     other(multiplier: multiplier)
                     security(multiplier: multiplier)
                 }
-                    
+                
                 Spacer(minLength: 50 * multiplier)
                     
                 tabView(multiplier: multiplier)

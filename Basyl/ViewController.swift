@@ -9,13 +9,14 @@ import SwiftUI
 import UIKit
 
 class ViewController: UIViewController {
-    private var settingsView = SettingsView()
+//    private var settingsView = SettingsView()
+    private var settingsView = Alert()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
 
-        settingsView.delegate = self
+//        settingsView.delegate = self
 
         let vc = UIHostingController(rootView: settingsView)
         let swiftuiView = vc.view!
