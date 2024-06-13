@@ -50,35 +50,35 @@ struct TabBarShape: Shape {
         )
         // Begin inset in middle, cutting into shape
         let offsetX = (insetRadius + centralCurvsRadius) * cos(angle)
-        let turnAngle = 90 - angle * 180 / .pi
+        let turnAngle = 90 - angle * 180 / .pi//90 - angle * 180 / .pi
         x = rect.midX - offsetX
-        y = rect.minY + centralCurvsRadius
+        y = rect.minY - centralCurvsRadius//+ centralCurvsRadius
         path.addArc(
             center: CGPoint(x: x, y: y),
             radius: centralCurvsRadius,
-            startAngle: .degrees(270),
-            endAngle: .degrees(270 + turnAngle),
-            clockwise: false
+            startAngle: .degrees(90),//(270),
+            endAngle: .degrees(90 - turnAngle),//(270 + turnAngle),
+            clockwise: true//false
         )
         // Add a half-circle to fit the button
         x = rect.midX
-        y = rect.minY
+        y = -rect.minY//rect.minY
         path.addArc(
             center: CGPoint(x: x, y: y),
             radius: insetRadius,
             startAngle: .radians(.pi - angle),
             endAngle: .radians(angle),
-            clockwise: true
+            clockwise: false//true
         )
-
+        // Finish inset in middle, cutting into shape
         x = rect.midX + offsetX
-        y = rect.minY + centralCurvsRadius
+        y = rect.minY - centralCurvsRadius//+ centralCurvsRadius
         path.addArc(
             center: CGPoint(x: x, y: y),
             radius: centralCurvsRadius,
-            startAngle: .degrees(270 - turnAngle),
-            endAngle: .degrees(270),
-            clockwise: false
+            startAngle: .degrees(90 + turnAngle),//(270 - turnAngle),
+            endAngle: .degrees(90),//(270),
+            clockwise: true//false
         )
         // Top-right corner
         x = rect.maxX - cornerRadius

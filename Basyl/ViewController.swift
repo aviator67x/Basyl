@@ -9,8 +9,8 @@ import SwiftUI
 import UIKit
 
 class ViewController: UIViewController {
-//    private var settingsView = SettingsView()
-    private var settingsView = Alert()
+    private var settingsView = SettingsView()
+//    private var settingsView = Alert()
 
     override func viewDidLoad() {
         super.viewDidLoad()
